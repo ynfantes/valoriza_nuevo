@@ -2,9 +2,9 @@
 date_default_timezone_set("America/La_Paz");
 
 if ($_SERVER['SERVER_NAME'] == "www.administracion-condominio.com.ve" | $_SERVER['SERVER_NAME'] == "administracion-condominio.com.ve") {
-    $user           = "pronet21_root";
-    $password       = "pronet215231";
-    $db             = "pronet21_com_ve";
+    $user           = "";
+    $password       = "";
+    $db             = "";
     $email_error    = true;
     $mostrar_error  = false;
     $debug          = false;
@@ -42,8 +42,8 @@ define("SERVER_ROOT", $_SERVER['DOCUMENT_ROOT'].SISTEMA);
 define("TEMPLATE", SERVER_ROOT . "/template/");
 define("PROGRAMA_CORREO",SMTP);
 define("NOMBRE_APLICACION","Valoriza2");
-define("SMTP_SERVER","mail.administracion-condominio.com.ve");                                 
+define("SMTP_SERVER","");                                 
 define("PORT",25);
-define("USER_MAIL","info@administracion-condominio.com.ve");
-define("PASS_MAIL","Edgar5231/-");
+define("USER_MAIL","");
+define("PASS_MAIL","");
 define("DEMO",FALSE);
