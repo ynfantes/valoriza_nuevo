@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang=es> <!--<![endif]-->
+<head>
+<meta charset=utf-8>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="js/gmap.js"></script>
+        
+        <script type="text/javascript">
+            var Contact = function () {
+
+            return {
+
+                //Map
+                initMap: function () {
+                var map;
+                var styles = [
+                    /*{
+                      stylers: [
+                        { hue: "#0055ff" },
+                        { saturation: -20 }
+                      ]
+                    },*/{
+                      featureType: "road",
+                      elementType: "geometry",
+                      stylers: [
+                        { lightness: 100 },
+                        { visibility: "simplified" }
+                      ]
+                    },{
+                      featureType: "road",
+                      elementType: "labels",
+                      stylers: [
+                        { visibility: "on" }
+                      ]
+                    },
+                    {
+                        featureType: "landscape",
+                        elementType: "geometry",
+                        stylers: [
+                            {visibility: "off"}
+                        ]
+                    },
+                    {
+                        featureType: "poi",
+                        elementType: "geometry",
+                        stylers: [
+                            {visibility: "off"},
+                        ]
+                    },
+                    {
+                        featureType: "poi",
+                        elementType: "labels",
+                        stylers: [
+                            {visibility: "off"},
+                        ]
+                    },
+                    {
+                      featureType: 'administrative',
+                      elementType : "geometry.stroke",
+                      stylers: [{color: '#4267B2'}]
+                    }
+
+                  ];
+
+                $(document).ready(function(){
+                  map = new GMaps({
+                        zoom: 6,
+                        div: '#map',
+                        center: {
+                            lat: 7.740438,
+                            lng: -65.332605
+                        }
+                  });
+                  map.setOptions({styles: styles});
+                   /*var marker = map.addMarker({
+                                lat: 10.483347,
+                                lng: -66.938701,
+                    title: 'Administradora Octagon'
+                    });*/
+                });
+                }
+
+            };
+            }();
+            jQuery(document).ready(function(){Contact.initMap();});
+        </script>
+    </head>
+    <body>
+    
+        <div id=map class="map" style="width: 700px; height: 508px; "></div>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /googlehostedservice.html?
+Disallow: /google5b8145463c6c96cc.html?
+Disallow: /descargas/
+sitemap: http://www.administracion-condominio.com.ve/sitemap.xml
