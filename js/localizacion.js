@@ -94,34 +94,6 @@ jQuery("form#llamada").validate({
         });
    }
 });
-$.getJSON('https://s3.amazonaws.com/dolartoday/data.json', function(data) {
-  let tasa = data.USD.dolartoday;
-  let soporte = Math.round(tasa * 30 / 1000) * 1000;
-  let emprendedor = Math.round(tasa * 240 / 1000) * 1000;
-  let empresarial = Math.round(tasa * 500 / 1000) * 1000;
-  let ppu = Math.round(tasa * 30 / 1000) * 1000;
-  
-  $("#precio").html(soporte.formatCurrency(0));
-  $("#alquiler").html(soporte.formatCurrency(0));
-  $("#setup-emprendedor").html(emprendedor.formatCurrency(0));
-  $("#setup-empresarial").html(empresarial.formatCurrency(0));
-  $("#setup-ppu").html(ppu.formatCurrency(0));
-  $(".tasa_del_dia").html(tasa.formatCurrency());
-});
-//$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
-//    console.log(data.address.country_code);
-//if (data.address.country_code != 'VE'){
-//    $("form#demo").append("<input type='hidden' name='token' value='p80n3721' />");
-//    $("a.icon-facebook").attr("href","https://www.facebook.com/ValorizaPanama");
-//    $("a.icon-twitter").attr("href","https://twitter.com/valoriza_PA");
-//    $("#precio").html("$40/month");
-//    $("#alquiler").html("$20/month");
-//    $("#setup-emprendedor").html("$150 Setup");
-//    $("#setup-empresarial").html("$300 Setup");
-//    $("li.web").hide();
-//    console.log('Internacional');
-//} 
-//});
 Number.prototype.formatCurrency = function(decimales=2) {
     var number = new String(this);
     var splitStr = number.split('.');
@@ -145,3 +117,31 @@ Number.prototype.formatCurrency = function(decimales=2) {
         return splitLef + splitRig;
     }
 };
+$.getJSON('https://s3.amazonaws.com/dolartoday/data.json', function(data) {
+  let tasa = data.USD.dolartoday;
+  let soporte = Math.round(tasa * 30);
+  let emprendedor = Math.round(tasa * 240);
+  let empresarial = Math.round(tasa * 500);
+  let ppu = Math.round(tasa * 30);
+  
+  $("#precio").html(soporte.formatCurrency(0));
+  $("#alquiler").html(soporte.formatCurrency(0));
+  $("#setup-emprendedor").html(emprendedor.formatCurrency(0));
+  $("#setup-empresarial").html(empresarial.formatCurrency(0));
+  $("#setup-ppu").html(ppu.formatCurrency(0));
+  $(".tasa_del_dia").html(tasa.formatCurrency());
+});
+//$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
+//    console.log(data.address.country_code);
+//if (data.address.country_code != 'VE'){
+//    $("form#demo").append("<input type='hidden' name='token' value='p80n3721' />");
+//    $("a.icon-facebook").attr("href","https://www.facebook.com/ValorizaPanama");
+//    $("a.icon-twitter").attr("href","https://twitter.com/valoriza_PA");
+//    $("#precio").html("$40/month");
+//    $("#alquiler").html("$20/month");
+//    $("#setup-emprendedor").html("$150 Setup");
+//    $("#setup-empresarial").html("$300 Setup");
+//    $("li.web").hide();
+//    console.log('Internacional');
+//} 
+//});
