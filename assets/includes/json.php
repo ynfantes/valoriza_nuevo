@@ -62,7 +62,7 @@ if (isset($_POST["email"])) {
     $mail = new mailto(SMTP);
     //$email = isset($_POST['token']) ? "info@sistemavaloriza.com" : "ynfantes@gmail.com";
     //if (mail($email,$subject,$message,$headers)) {
-    $r = $mail->enviar_email($subject, $message, '', "ynfantes@gmail.com", "Edgar Messia");
+    $r = $mail->enviar_email($subject, $message, '', "ynfantes@gmail.com", "Edgar Messia", $_POST['email']);
     if ($r == '') {
         echo '<i class="icon-ok"></i><strong>Menseje enviado con éxito!</strong>
                 En breve estaremos contactando con usted.<br>Gracias por su interés.';

@@ -76,7 +76,7 @@ class mailto {
      * @param Array $attach  archivos adjuntos
      * @return string  
      */
-    public function enviar_email($asunto,$mensaje, $textoAlternativo, $emailDestinatario, $nombreDestinatario ="",$attach=null) {
+    public function enviar_email($asunto,$mensaje, $textoAlternativo, $emailDestinatario, $nombreDestinatario = "", $replyTo = null, $attach=null) {
         
         $this->mail->From = $this->user;
         $this->mail->FromName = NOMBRE_APLICACION;
@@ -98,7 +98,9 @@ class mailto {
         } else {
             $this->mail->AddAddress($emailDestinatario, $nombreDestinatario);
             $this->mail->AddBCC("ynfantes@gmail.com","Edgar Messia");
-            $this->mail->AddReplyTo($emailDestinatario);
+            if ($replyTo !== null) {
+                $this->mail->AddReplyTo($replyTo);
+            }
         }
         
         $this->mail->IsHTML(true);
