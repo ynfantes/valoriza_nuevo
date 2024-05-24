@@ -120,7 +120,7 @@ Number.prototype.formatCurrency = function(decimales=2) {
 $.getJSON('https://s3.amazonaws.com/dolartoday/data.json', function(data) {
   let tasa = data.USD.dolartoday;
   let soporte = Math.round(tasa * 30);
-  let emprendedor = Math.round(tasa * 250);
+  let emprendedor = Math.round(tasa * 300);
   let empresarial = Math.round(tasa * 500);
   let ppu = Math.round(tasa * 30);
   
