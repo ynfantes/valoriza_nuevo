@@ -46,10 +46,10 @@ if (isset($_POST["email"])) {
     $message = utf8_decode(stripslashes($message));
     if (isset($_POST['token'])) {
         $subject = "Contacto Valoriza2 Internacional";
-        $email = "ynfantes@gmail.com";
+        $email = "webmail.pronet21@gmail.com";
     } else {
         $subject = "DEMO " . $_POST["email"];
-        $email = "ynfantes@gmail.com";
+        $email = "webmail.pronet21@gmail.com";
     }
     $r = $prospecto->insertar($data);
     
@@ -62,7 +62,7 @@ if (isset($_POST["email"])) {
     $mail = new mailto(SMTP);
     //$email = isset($_POST['token']) ? "info@sistemavaloriza.com" : "ynfantes@gmail.com";
     //if (mail($email,$subject,$message,$headers)) {
-    $r = $mail->enviar_email($subject, $message, '', "ynfantes@gmail.com", "Edgar Messia", $_POST['email']);
+    $r = $mail->enviar_email($subject, $message, '', "webmail.pronet21@gmail.com", "Valoriza2", $_POST['email']);
     if ($r == '') {
         echo '<i class="icon-ok"></i><strong>Menseje enviado con éxito!</strong>
                 En breve estaremos contactando con usted.<br>Gracias por su interés.';
