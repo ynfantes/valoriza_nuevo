@@ -117,8 +117,10 @@ Number.prototype.formatCurrency = function(decimales=2) {
         return splitLef + splitRig;
     }
 };
-$.getJSON('https://s3.amazonaws.com/dolartoday/data.json', function(data) {
-  let tasa = data.USD.dolartoday;
+$.getJSON('https://v2.web.ve/bcv/?action=rateOfDay', function(data) {
+  let sTasa = data.price;
+  let tasa = parseFloat(sTasa.replace(",","."));
+  console.log("Tasa BCV: " + tasa);
   let soporte = Math.round(tasa * 30);
   let emprendedor = Math.round(tasa * 300);
   let empresarial = Math.round(tasa * 500);
@@ -129,7 +131,7 @@ $.getJSON('https://s3.amazonaws.com/dolartoday/data.json', function(data) {
   $("#setup-emprendedor").html(emprendedor.formatCurrency(0));
   $("#setup-empresarial").html(empresarial.formatCurrency(0));
   $("#setup-ppu").html(ppu.formatCurrency(0));
-  $(".tasa_del_dia").html(tasa.formatCurrency());
+  $(".tasa_del_dia").html(sTasa);
 });
 //$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
 //    console.log(data.address.country_code);
